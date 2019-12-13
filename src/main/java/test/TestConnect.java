@@ -1,17 +1,9 @@
 package test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.mvc.dao.ActorDao;
-import com.mvc.dao.AddressDao;
-import com.mvc.entity.Actor;
-import com.mvc.entity.Address;
-import com.mvc.entity.City;
-import com.mvc.service.ActorService;
 
 public class TestConnect {
 

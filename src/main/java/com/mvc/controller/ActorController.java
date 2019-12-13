@@ -29,18 +29,6 @@ public class ActorController {
 	@Autowired
 	private ActorService actSvc;
 
-//	@RequestMapping(value = "/actor", method = RequestMethod.GET)
-//	public ResponseEntity<?> showAll() {
-//		Map<String, Object> returnData = new HashMap<String, Object>();
-//		List<Actor> list = actSvc.getAll();
-//		HttpHeaders headers = new HttpHeaders();
-////		return new ResponseEntity<>(list, headers, HttpStatus.OK);
-//		returnData.put("status", "1");
-//		returnData.put("desc", "success");
-//		returnData.put("data", list);
-//		return new ResponseEntity<>(returnData, headers, HttpStatus.OK);
-//	}
-
 	@RequestMapping(value = "/actor", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> showAllSearch(
 			@RequestParam(value = "find", defaultValue = "", required = false) String search) {
@@ -155,40 +143,5 @@ public class ActorController {
 			return new ResponseEntity<>(returnData, HttpStatus.NOT_FOUND);
 		}
 	}
-
-	/*------ DELETE USES ENTITY ------*/
-//	@RequestMapping(value = "/actor", method = RequestMethod.DELETE)
-//	public ResponseEntity<?> dele(@RequestBody Actor act) {
-//		Map<String, Object> returnData = new HashMap<String, Object>();
-//		List<Actor> a = actSvc.getAll();
-//		
-//		if (act != null) {
-//			for (Actor ac : a) {
-//				if (ac.getActorId() == act.getActorId() && ac.getFirstName().equals(act.getFirstName()) && ac.getLastName().equals(act.getLastName())) {
-//					actSvc.dele(act);
-//					returnData.put("status", "1");
-//					returnData.put("desc", "success");
-//					return new ResponseEntity<>(returnData,HttpStatus.OK);
-//				}
-//			}
-//			returnData.put("status", "0");
-//			returnData.put("desc", "There is no entity with such ID in the database.");
-//			return new ResponseEntity<>(returnData,HttpStatus.NOT_FOUND);
-//		} else {
-//			returnData.put("status", "0");
-//			returnData.put("desc", "There is no entity with such ID in the database.");
-//			return new ResponseEntity<>(returnData,HttpStatus.NOT_FOUND);
-//		}
-//	}
-
-//	@RequestMapping(value = "/actor/{noId}", method = RequestMethod.DELETE)
-//	public void delete(@PathVariable("noId") int noId) {
-//		Map<String, Object> returnData = new HashMap<String, Object>();
-//		if (noId != 0) {
-//			actSvc.delete(noId);
-//		} else {
-//			throw new EntityExistsException("There is no entity with such ID in the database.");
-//		}
-//	}
 
 }
