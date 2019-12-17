@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Learn MVC</title>
+<script src="../js/angular.min.js"></script>
+<script src="../app.js"></script>
+<script src="../service/MainService.js"></script>
+<script src="../factory/MainFactory.js"></script>
+<script src="../controller/MainController.js"></script>
+</head>
+
+<body ng-app="crudApp">
+	<div ng-controller="crudController">
+
+		<h2>{{header}}</h2>
+
+		<table border="1">
+			<tr>
+				<th>Name</th>
+				<th>Username</th>
+				<th>Email</th>
+				<th>Website</th>
+				<th>Company</th>
+			</tr>
+
+			<tr ng-repeat="u in users">
+				<td>{{u.name}}</td>
+				<td>{{u.username}}</td>
+				<td>{{u.email}}</td>
+				<td>{{u.website}}</td>
+				<td>{{u.company.name}}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

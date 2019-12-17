@@ -1,0 +1,41 @@
+version: "3.7"
+services:
+  maria1:
+    container_name: maria1
+    image: mariadb:10.3
+    ports:
+      - 3010:3306
+    networks:
+      - spring-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=P@ssw0rd
+  maria2:
+    container_name: maria2
+    image: mariadb:10.3
+    ports:
+      - 4010:3306
+    networks:
+      - spring-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=P@ssw0rd
+  spring-x:
+    container_name: spring-x
+    image: xproject:1.0
+    ports:
+      - 8080:8080
+    networks:
+      - spring-network
+    depends_on:
+      - maria1
+  spring-y:
+    container_name: spring-y
+    image: yproject:1.0
+    ports:
+      - 8010:8080
+    networks:
+      - spring-network
+    depends_on:
+      - maria1
+networks:
+  spring-network:
+    name: spring-network
